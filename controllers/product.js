@@ -60,7 +60,13 @@ function saveProduct(req, res) {
     })
 }
 
+function updateProducts(req, res){
+   Product.update({name: "iphone x"}, { $set: { picture: "nueva foto" } }, {multi: true}, (err, product)=>{
+       res.send(product)
+   })
+}
+
 module.exports = {
     getProduct,
-    getProducts, deleteProdutc, updateProduct, saveProduct
+    getProducts, deleteProdutc, updateProduct, saveProduct, updateProducts
 }
